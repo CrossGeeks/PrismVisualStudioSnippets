@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>papp</Shortcut>
+      <_Description>Template for PrismApplication Class Implementation</_Description>
+      <TemplateType>Expansion</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="classname">
+        <Default>notset</Default>
+        <_ToolTip>Class name</_ToolTip>
+        <Function>GetCurrentClassName()</Function>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public $classname$ (IPlatformInitializer initializer = null) : base(initializer) { }
+
+protected override  void OnInitialized()
+{
+     InitializeComponent();
+     NavigationService.NavigateAsync("MainPage");
+}
+
+protected override void RegisterTypes(IContainerRegistry containerRegistry)
+{
+     containerRegistry.RegisterForNavigation<NavigationPage>();
+     containerRegistry.RegisterForNavigation<MainPage>();
+}
+$end$]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
